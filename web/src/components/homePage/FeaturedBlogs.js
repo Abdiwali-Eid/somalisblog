@@ -20,6 +20,12 @@ function FeaturedBlogs() {
                 current
               }
             }
+            author {
+              name
+              slug {
+                current
+              }
+            }
             coverImage {
               alt
               asset {

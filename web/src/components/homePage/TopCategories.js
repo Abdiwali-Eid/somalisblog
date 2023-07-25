@@ -22,8 +22,17 @@ function TopCategories() {
       }
     }
   `);
-  // const categories = data.allSanityFeatured.nodes[0].category;
-  return <div>top Catogry</div>;
+  const categories = data.allSanityFeatured.nodes[0].category;
+  return (
+    <TopCategoriesStyles>
+      <SectionTitle>Top Categories</SectionTitle>
+      <ParagraphText className="info">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae veniam
+        fuga minima.
+      </ParagraphText>
+      <CategoryGrid categories={categories} />
+    </TopCategoriesStyles>
+  );
 }
 
 export default TopCategories;

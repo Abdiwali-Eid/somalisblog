@@ -6,7 +6,7 @@ import { BlogItemStyles } from '../../styles/blog/BlogItemStyles';
 import ParagraphText from '../typography/ParagraphText';
 import { Title } from '../typography/Title';
 
-function BlogItem({ path, title, image, categories, publishedAt }) {
+function BlogItem({ path, title, image, categories, author }) {
   return (
     <BlogItemStyles>
       <Link to={`/blogs/${path}`}>
@@ -19,11 +19,11 @@ function BlogItem({ path, title, image, categories, publishedAt }) {
       <Link to={`/blogs/${path}`}>
         <Title className="title">{title}</Title>
       </Link>
-      {publishedAt && (
+      {/* {publishedAt && (
         <ParagraphText className="publishedAt">
           {format(new Date(publishedAt), 'p, MMMM dd, yyyy')}
         </ParagraphText>
-      )}
+      )} */}
       <ParagraphText className="categoriesText">
         {categories.map((item, index) => (
           <span key={item.slug.current}>
@@ -31,6 +31,12 @@ function BlogItem({ path, title, image, categories, publishedAt }) {
             {index < categories.length - 1 ? ', ' : ''}
           </span>
         ))}
+      </ParagraphText>
+      <ParagraphText className="author">
+        {/* <span key={author.slug.current}> */}
+        <Link to={`/authors/${author.slug.current}`} />
+
+        <Title className="title">{author.name}</Title>
       </ParagraphText>
     </BlogItemStyles>
   );

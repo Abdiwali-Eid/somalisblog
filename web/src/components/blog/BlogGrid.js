@@ -12,11 +12,12 @@ function BlogGrid({ blogs }) {
             path={blog.slug.current}
             title={blog.title}
             categories={blog.categories}
+            author={blog.author}
             image={{
               imageData: blog.coverImage.asset.gatsbyImageData,
               altText: blog.coverImage.alt,
             }}
-            publishedAt={blog.publishedAt}
+            // publishedAt={blog.publishedAt}
           />
         ))}
     </BlogGridStyles>
