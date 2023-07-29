@@ -11,6 +11,11 @@ export const SingleBlogStyles = styled.div`
     margin-bottom: 1rem;
     font-size: 2.5rem;
   }
+  .authorProfileImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
   .publishedAt {
     margin-bottom: 0.5rem;
   }

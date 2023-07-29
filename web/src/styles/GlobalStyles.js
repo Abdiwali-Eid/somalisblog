@@ -12,9 +12,9 @@ const GlobalStyles = createGlobalStyle`
     --darkBlue: #070747; 
     --darkPurple: #0E0034;
     --black-1: rgb(240, 242, 245);
-    --black-2: #121826;
+    --black-2: rgb(85, 128, 170);
     --white-1: #C6BED9;
-    --gray: #64718A;
+    --gray: #283739;
     --grey: var(--gray);
     --white: #121826;
     --black: black;

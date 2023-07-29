@@ -7,6 +7,7 @@ import PageSpace from '../components/PageSpace';
 import SEO from '../components/seo';
 import { Title } from '../components/typography/Title';
 import { SingleAuthorStyles } from '../styles/author/SingleAuthorStyles';
+import { socialLinks } from '../constants/socialLinks';
 
 export const authorQuery = graphql`
   query SingleAuthorQuery($id: String!) {
@@ -63,6 +64,13 @@ function SingleAuthor({ data }) {
             <div className="bio">
               <MyPortableText value={author._rawBio} />
             </div>
+            <ul className="footer__socialList">
+              {socialLinks.map((item) => (
+                <li key={item.name}>
+                  <a href={item.url}>{item.icon}</a>
+                </li>
+              ))}
+            </ul>
           </div>
           <hr className="hr" />
           <BlogGrid blogs={blogs} />

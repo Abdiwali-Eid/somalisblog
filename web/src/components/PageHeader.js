@@ -7,9 +7,14 @@ function PageHeader({ title, description, children, className }) {
   return (
     <div className={className}>
       <PageHeaderStyles>
-        <SectionTitle>{title}</SectionTitle>
-        <ParagraphText>{description}</ParagraphText>
-        {children}
+        <SectionTitle style={{ color: 'white', paddingLeft: '10px' }}>
+          {title}
+        </SectionTitle>
+        <ParagraphText style={{ color: 'white', paddingLeft: '10px' }}>
+          {description}
+
+          {children}
+        </ParagraphText>
       </PageHeaderStyles>
     </div>
   );

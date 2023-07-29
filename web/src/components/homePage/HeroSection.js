@@ -23,7 +23,7 @@ function HeroSection() {
           <div className="right">
             <StaticImage
               className="hero__image"
-             src="https://virtualcomputing.nl/wp-content/uploads/2020/07/image.png" 
+              src="https://virtualcomputing.nl/wp-content/uploads/2020/07/image.png"
               // src="../../images/hero (1).jpg"
               alt="vr guy"
               placeholder="blurred"

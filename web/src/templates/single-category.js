@@ -56,11 +56,11 @@ function SingleCategory({ data }) {
           <SEO title={category.title} />
           <PageHeader title={category.title} className="pageHeader">
             <MyPortableText value={category._rawDescription} />
-            <GatsbyImage
+            {/* <GatsbyImage
               image={category.coverImage.asset.gatsbyImageData}
               alt={category.coverImage.alt}
               className="coverImage"
-            />
+            /> */}
           </PageHeader>
           <BlogGrid blogs={blogs} />
         </div>

@@ -32,12 +32,6 @@ function BlogItem({ path, title, image, categories, author }) {
           </span>
         ))}
       </ParagraphText>
-      <ParagraphText className="author">
-        {/* <span key={author.slug.current}> */}
-        <Link to={`/authors/${author.slug.current}`} />
-
-        <Title className="title">{author.name}</Title>
-      </ParagraphText>
     </BlogItemStyles>
   );
 }

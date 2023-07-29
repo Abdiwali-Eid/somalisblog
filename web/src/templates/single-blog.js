@@ -8,6 +8,7 @@ import PageSpace from '../components/PageSpace';
 import ParagraphText from '../components/typography/ParagraphText';
 import { Title } from '../components/typography/Title';
 import { SingleBlogStyles } from '../styles/blog/SingleBlogStyles';
+// import { SearchResultItemStyles } from '../styles/search/SearchResultItemStyles';
 import MyPortableText from '../components/MyPortableText';
 import SEO from '../components/seo';
 
@@ -33,6 +34,11 @@ export const postQuery = graphql`
         name
         slug {
           current
+        }
+        profileImage {
+          asset {
+            gatsbyImageData
+          }
         }
       }
     }
@@ -70,8 +76,15 @@ function SingleBlog({ data }) {
                 ))}
               </span>
             </ParagraphText>
+
             <ParagraphText className="author">
-              <FiUser />
+              <Link to={`/authors/${blog.author.slug.current}`}>
+                <GatsbyImage
+                  image={blog.author.profileImage.asset.gatsbyImageData}
+                  alt={blog.author.profileImage.alt}
+                  className="authorProfileImg"
+                />
+              </Link>
               <Link to={`/authors/${blog.author.slug.current}`}>
                 {blog.author.name}
               </Link>
