@@ -19,6 +19,10 @@ export const SingleBlogStyles = styled.div`
   .publishedAt {
     margin-bottom: 0.5rem;
   }
+  .dhig {
+    display: flex;
+    justify-content: space-evenly;
+  }
   .categoriesText,
   .author,
   .publishedAt {

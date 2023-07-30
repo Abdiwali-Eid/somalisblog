@@ -1,6 +1,7 @@
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { DiscussionEmbed } from 'disqus-react';
 import { format } from 'date-fns';
 import { BiCategory } from 'react-icons/bi';
 import { FiCalendar, FiUser } from 'react-icons/fi';
@@ -47,6 +48,10 @@ export const postQuery = graphql`
 
 function SingleBlog({ data }) {
   const blog = data.sanityBlog;
+  // const disqusConfig = {
+  //   shortname: process.env.GATSBY_DISQUS_NAME,
+  //   config: { identifier: blog.slug },
+  // };
   return (
     <SingleBlogStyles>
       <SEO title={blog.title} />
@@ -59,40 +64,43 @@ function SingleBlog({ data }) {
               className="blog-cover-image"
             />
             <Title className="title">{blog.title}</Title>
-            <ParagraphText className="publishedAt">
-              <FiCalendar />
-              {format(new Date(blog.publishedAt), 'p, MMMM dd, yyyy')}
-            </ParagraphText>
-            <ParagraphText className="categoriesText">
-              <BiCategory />
-              <span>
-                {blog.categories.map((item, index) => (
-                  <span key={item.slug.current}>
-                    <Link to={`/categories/${item.slug.current}`}>
-                      {item.title}
-                    </Link>
-                    {index < blog.categories.length - 1 ? ', ' : ''}
-                  </span>
-                ))}
-              </span>
-            </ParagraphText>
-
-            <ParagraphText className="author">
-              <Link to={`/authors/${blog.author.slug.current}`}>
-                <GatsbyImage
-                  image={blog.author.profileImage.asset.gatsbyImageData}
-                  alt={blog.author.profileImage.alt}
-                  className="authorProfileImg"
-                />
-              </Link>
-              <Link to={`/authors/${blog.author.slug.current}`}>
-                {blog.author.name}
-              </Link>
-            </ParagraphText>
+            <hr className="hr" />
+            <div className="dhig">
+              <ParagraphText className="author">
+                <Link to={`/authors/${blog.author.slug.current}`}>
+                  <GatsbyImage
+                    image={blog.author.profileImage.asset.gatsbyImageData}
+                    alt={blog.author.profileImage.alt}
+                    className="authorProfileImg"
+                  />
+                </Link>
+                <Link to={`/authors/${blog.author.slug.current}`}>
+                  {blog.author.name}
+                </Link>
+              </ParagraphText>
+              <ParagraphText className="publishedAt">
+                <FiCalendar />
+                {format(new Date(blog.publishedAt), 'p, MMMM dd, yyyy')}
+              </ParagraphText>
+              <ParagraphText className="categoriesText">
+                <BiCategory />
+                <span>
+                  {blog.categories.map((item, index) => (
+                    <span key={item.slug.current}>
+                      <Link to={`/categories/${item.slug.current}`}>
+                        {item.title}
+                      </Link>
+                      {index < blog.categories.length - 1 ? ', ' : ''}
+                    </span>
+                  ))}
+                </span>
+              </ParagraphText>
+            </div>
           </div>
           <hr className="hr" />
           <div className="body">
             <MyPortableText value={blog._rawBody} />
+            {/* <DiscussionEmbed {...disqusConfig} /> */}
           </div>
         </div>
       </PageSpace>
